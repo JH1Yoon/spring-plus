@@ -17,6 +17,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -80,4 +82,26 @@ public class TodoService {
                 todo.getModifiedAt()
         );
     }
+
+    public Page<TodoResponse> getTodos(int page, int size, String weather, String startDate, String endDate) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        LocalDateTime startDateTime = startDate != null ? LocalDateTime.parse(startDate + "T00:00:00") : null;
+        LocalDateTime endDateTime = endDate != null ? LocalDateTime.parse(endDate + "T23:59:59") : null;
+
+
+
+        Page<Todo> todos = todoRepository.findByWeatherAndModifiedAt(weather, startDateTime, endDateTime, pageable);
+
+        return todos.map(todo -> new TodoResponse(
+                todo.getId(),
+                todo.getTitle(),
+                todo.getContents(),
+                todo.getWeather(),
+                new UserResponse(todo.getUser().getId(), todo.getUser().getEmail()),
+                todo.getCreatedAt(),
+                todo.getModifiedAt()
+        ));
+    }
+
+
 }
