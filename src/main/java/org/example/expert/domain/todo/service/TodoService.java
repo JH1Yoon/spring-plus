@@ -84,11 +84,10 @@ public class TodoService {
     }
 
     public Page<TodoResponse> getTodos(int page, int size, String weather, String startDate, String endDate) {
+
         Pageable pageable = PageRequest.of(page - 1, size);
         LocalDateTime startDateTime = startDate != null ? LocalDateTime.parse(startDate + "T00:00:00") : null;
         LocalDateTime endDateTime = endDate != null ? LocalDateTime.parse(endDate + "T23:59:59") : null;
-
-
 
         Page<Todo> todos = todoRepository.findByWeatherAndModifiedAt(weather, startDateTime, endDateTime, pageable);
 
@@ -102,6 +101,4 @@ public class TodoService {
                 todo.getModifiedAt()
         ));
     }
-
-
 }
