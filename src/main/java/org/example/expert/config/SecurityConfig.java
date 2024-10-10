@@ -35,7 +35,7 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtSecurityFilter, UsernamePasswordAuthenticationFilter.class) // JWT 필터 등록
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/signin", "/auth/signup").permitAll() // 인증 없이 접근 가능
+                        .requestMatchers("/auth/signin", "/auth/signup", "/health").permitAll() // 인증 없이 접근 가능
                         .requestMatchers("/admin/**").hasAuthority("ROLE_" + UserRole.ADMIN.name()) // ADMIN 권한 필요
                         .anyRequest().authenticated() // 나머지 요청은 인증 필요
                 )
