@@ -1,5 +1,3 @@
-# SPRING PLUS
-
 ## 🚫 레거시 코드 리팩토링 플러스 🚫
 
 --------------------------------------------------------------
@@ -48,3 +46,26 @@
         <img src="https://github.com/user-attachments/assets/fb01f9a5-ae3e-420d-80da-87129eb19802" alt="ERD">
     </ul>
 </details>
+
+
+## AWS 실행화면
+--------------------------------------------------------------
+
+### HealthChaeck 실행화면
+<details>
+    <summary>성공</summary>
+    <ul>
+        <img src="https://github.com/user-attachments/assets/e61afc46-335f-44ca-a3db-c44d8a6d78a7" alt="ERD">
+    </ul>
+</details>
+
+<details>
+    <summary>실패</summary>
+    <ul>
+        <img src="https://github.com/user-attachments/assets/14c47fe3-afd6-4059-aca8-c9ff189b7cf7" alt="ERD">
+    </ul>
+</details>
+
+## 트러플 슈팅
+--------------------------------------------------------------
+[예외가 발생했을 때 Transactional 실패](https://velog.io/@jhy1/%EC%98%88%EC%99%B8%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%96%88%EC%9D%84-%EB%95%8C-Transactional)
